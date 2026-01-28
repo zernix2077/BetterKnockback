@@ -1,56 +1,15 @@
-# Allay Java Plugin Template
+# Better Knockback
 
-Welcome to the java plugin template for allay.
+Plugin to make knockback on Allay feel more PocketMine–like.
 
-## Prerequisites
+In vanilla Minecraft (and Allay), punching a player during a jump sends them far too high into the air, while punching a player as they’re falling lifts them by too small an amount (pvp combos almost impossible). This happens because knockback is applied to the player’s current motion vector: a punch during a jump sets the Y motion to 0.42 + 0.4 = 0.92, while during a PvP-like fall it becomes -0.2 + 0.4 = 0.2.
 
-- Java21 or higher.
-- Allay installed.
+This plugin resolves the issue in the same way PocketMine-MP does: previous motion is not taken into account when applying knockback, and the player always receives the exact same vertical elevation and horizontal amplitude.
 
-## Getting Started
+# Install
 
-1. **Clone this Repository**
+- Download .jar file from releases
+- Put it into ./plugins folder
+- Restart the server
+- Enjoy!
 
-```bash
-git clone https://github.com/AllayMC/JavaPluginTemplate.git
-```
-   
-2. **Navigate to the Cloned Directory**
-
-```bash
-cd JavaPluginTemplate
-```
-   
-3. **Change Plugin Information**
-
-- Rename package name from `org.allaymc.javaplugintemplate` to `your.group.name.and.pluginname`
-- Update [build.gradle.kts](build.gradle.kts) and [settings.gradle.kts](settings.gradle.kts)
-- Reload gradle
-   
-4. **Build and Run Your Plugin**
-
-```bash
-gradlew shadowJar
-```
-   
-This command will produce a `.jar` file in the `build/libs` directory. 
-Copy the `.jar` file to the `plugins` directory of your allay server.
-Start the allay server and check the logs to ensure your plugin loads and operates
-as expected.
-
-5. **Test Your Plugin in Gradle**
-
-```bash
-gradlew runServer
-```
-
-This command will start an allay server with your plugin loaded.
-Then close allay server by clicking `X` in the dashboard window.
-
-## Documentation
-
-For a deeper dive into the Allay API and its functionalities, please refer to our [documentation](https://docs.allaymc.org) (WIP).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
